@@ -1,0 +1,520 @@
+﻿<Window x:Class="Starbucks_POS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:viewModels="clr-namespace:Starbucks_POS.ViewModels"
+        Title="POS Terminal" Height="1080" Width="1920"
+        Background="#202020">
+    
+    <Window.Resources>
+        
+        <Style TargetType="ui:Button" BasedOn="{StaticResource {x:Type ui:Button}}">
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property = "Padding" Value="0" />
+        </Style>
+        
+        <!-- VARIABLE CONSTANTS -->
+        <SolidColorBrush x:Key="BackgroundColour" Color="#202020"/>
+    </Window.Resources>
+    
+    <!-- Attach the logic to the UI -->
+    <Window.DataContext>
+        <viewModels:CartViewModel/>
+    </Window.DataContext>
+
+    
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    
+    
+    <!-- BIG MAIN GRID -->
+    <Grid>
+        
+        <!-- Define The 3 Main Columns-->
+        <Grid.ColumnDefinitions>
+            
+            <ColumnDefinition Width="440" /> <!-- 1st column for receipts -->
+            <ColumnDefinition Width="*" />   <!-- 2nd column for the menu -->
+            
+        </Grid.ColumnDefinitions>
+        
+        
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        
+        
+        <!-- RECEIPT COLUMN -->
+        <Grid Grid.Column="0">
+            
+            <!-- Define the Grid -->
+            <Grid.RowDefinitions>
+            
+                <RowDefinition Height="120" /> <!-- 1st Row for Starbucks App -->
+                <RowDefinition Height="760" /> <!-- 2nd Row for Receipt list -->
+                <RowDefinition Height="*" /> <!-- 3rd Row for Buttons -->
+            
+            </Grid.RowDefinitions>
+            
+            <!-- Starbucks App -->
+            <WrapPanel Grid.Row="0">
+            
+                <ui:Button Content="⌕" Height="120" Width="100" Margin="0"
+                           Background="#878787" BorderThickness="0" CornerRadius="0" FontSize="30">
+                </ui:Button>
+                
+                <ui:Button Height="120" Width="340" Margin="0 "
+                           Background="#666666" BorderThickness="0" CornerRadius="0" 
+                           HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Padding="10,15,0,0">
+                    
+                    <StackPanel>
+                        <TextBlock Text="Scan Starbucks ID" FontSize="35" TextWrapping="Wrap"/>
+                        <TextBlock Text="Redy" FontSize="20" Foreground="#AAAAAA" Margin="0,3,0,0"/>
+                    </StackPanel>
+                    
+                </ui:Button>
+            
+            </WrapPanel> 
+            
+            
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+            
+            
+            <!-- Recipts Panel -->  
+            <StackPanel Grid.Row="1" Background="LightGray">
+                
+            </StackPanel>
+            
+        
+        
+        
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        
+            
+            <!-- Button Panel -->
+            
+            <WrapPanel Grid.Row="2" Background="#3b3b3b">
+                 
+                <ui:Button Width = "190" Height="140" Margin="25,25,0,10">
+                    <TextBlock TextAlignment="Center">
+                        Functions
+                    </TextBlock>
+                </ui:Button>
+                
+                <ui:Button Width = "190" Height="140" Margin="10,25,0,10">
+                    <TextBlock TextAlignment="Center">
+                        Reprint Customer<LineBreak/>Receipt
+                    </TextBlock>
+                </ui:Button>
+                
+            </WrapPanel>
+            
+        </Grid>
+        
+        
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        
+        
+        <!-- SECOND COLUMN -->
+        
+        <!-- Put Grid in 3rd Column -->
+        <Grid Grid.Column="1">
+            
+            <!-- Define the Grid -->
+            <Grid.RowDefinitions>
+            
+                <RowDefinition Height="120" /> <!-- 1st Row for Item Categories -->
+                <RowDefinition Height="60" /> <!-- 2nd Row for Size -->
+                <RowDefinition Height="60" /> <!-- 3rd Row for Drink Categories -->
+                <RowDefinition Height="*" /> <!-- 4th Row for Drinks -->
+            
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                
+                <ColumnDefinition Width="200" />  <!-- 1st column for the customisation menue -->
+                <ColumnDefinition Width="*" />   <!-- 2nd column for the menu -->
+            
+            </Grid.ColumnDefinitions>
+            
+            
+            <!-- Item Categories 1st Row  -->
+            <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                
+                <ui:Button DockPanel.Dock="Left" Content="⌕" Height="120" Width="170" Margin="0"
+                           Background="#108533" BorderThickness="0" CornerRadius="0" FontSize="30"/>
+    
+                <UniformGrid Rows="1">
+                    <ui:Button Content="Drinks" HorizontalAlignment="Stretch" Height="120" Margin="0"
+                               Background="#108533" BorderThickness="0" CornerRadius="0"/>
+                    <ui:Button Content="Bakery" HorizontalAlignment="Stretch" Height="120" Margin="0"
+                               Background="#108533" BorderThickness="0" CornerRadius="0"/>
+                    <ui:Button Content="Chilled" HorizontalAlignment="Stretch" Height="120" Margin="0"
+                               Background="#108533" BorderThickness="0" CornerRadius="0"/>
+                    <ui:Button Content="Impulse" HorizontalAlignment="Stretch" Height="120" Margin="0"
+                               Background="#108533" BorderThickness="0" CornerRadius="0"/>
+                    <ui:Button Content="Lobby" HorizontalAlignment="Stretch" Height="120" Margin="0"
+                               Background="#108533" BorderThickness="0" CornerRadius="0"/>
+                    <ui:Button Content="Gift Card" HorizontalAlignment="Stretch" Height="120" Margin="0"
+                               Background="#108533" BorderThickness="0" CornerRadius="0"/>
+                </UniformGrid>
+    
+            </DockPanel>
+            
+            
+            <!-- Drink Sizes 2nd Row -->
+            <UniformGrid Grid.Row="1" Grid.Column="1" Rows="1" Margin= "50,0,50,0">
+                
+                <ui:Button Content="Short" HorizontalAlignment="Stretch" Height="120" Margin="0,10,0,0"
+                           Background="#666666" CornerRadius="10000, 0 ,0 ,10000"/>
+                <ui:Button Content="Tall" HorizontalAlignment="Stretch" Height="120" Margin="4,10,0,0"
+                           Background="#666666"/>
+                <ui:Button Content="Grande" HorizontalAlignment="Stretch" Height="120" Margin="4,10,0,0"
+                           Background="#666666"/>
+                <ui:Button Content="Venti" HorizontalAlignment="Stretch" Height="120" Margin="4,10,0,0"
+                           Background="#666666" CornerRadius="0, 10000 ,10000 ,0"/>
+                
+                <ui:Button Content="Iced" HorizontalAlignment="Stretch" Height="120" Margin="10,10,10,0"
+                           Background="#666666" CornerRadius="10000" />
+                
+                <ui:Button Content="Blond" HorizontalAlignment="Stretch" Height="120" Margin="0,10,4,0"
+                           Background="#666666" CornerRadius="10000, 0 ,0 ,10000"/>
+                <ui:Button Content="Signature" HorizontalAlignment="Stretch" Height="120" Margin="4,10,0,0"
+                           Background="#666666"/>
+                <ui:Button Content="Decaf" HorizontalAlignment="Stretch" Height="120" Margin="4,10,0,0"
+                           Background="#666666" CornerRadius="0, 10000 ,10000 ,0"/>
+                
+            </UniformGrid>
+            
+            
+            <!-- Drink Categories 3rd Row -->
+            <WrapPanel Grid.Row="2" Grid.Column="1" Margin="50,0,0,0" >
+                
+                <ui:Button Content="Espresso"  Height="120" Width="180" Margin="110,24,20,0" BorderThickness="0"   
+                           Background="{ui:StaticResource BackgroundColour}" />
+                <ui:Button Content="Frappuccino" Height="120" Width="180" Margin="82,24,20,0" BorderThickness="0"   
+                           Background="{ui:StaticResource BackgroundColour}"/>
+                <ui:Button Content="Brewed" Height="120" Width="180" Margin="0,24,20,0" BorderThickness="0"   
+                           Background="{ui:StaticResource BackgroundColour}"/>
+                <ui:Button Content="Tea" Height="120" Width="180" Margin="0,24,20,0" BorderThickness="0"   
+                           Background="{ui:StaticResource BackgroundColour}"/>
+                <ui:Button Content="Other" Height="120" Width="180" Margin="0,24,20,0" BorderThickness="0"   
+                           Background="{ui:StaticResource BackgroundColour}"/>
+                
+            </WrapPanel>
+            
+            
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+            
+            
+            <!-- DRINKS 4th row-->
+            
+            <Grid Grid.Row="3" Grid.Column="1" >
+                
+                <!-- Define Columns-->
+                <Grid.ColumnDefinitions>
+            
+                    <ColumnDefinition Width="419" /> <!-- 1st column for Espresso -->
+                    <ColumnDefinition Width="199" /> <!-- 2nd column for Frappucchino -->
+                    <ColumnDefinition Width="199" /> <!-- 3rd column for Brewed -->
+                    <ColumnDefinition Width="199" /> <!-- 4th column for Tea -->
+                    <ColumnDefinition Width="199" /> <!-- 5th column for Other -->
+            
+                </Grid.ColumnDefinitions>
+                
+                
+                <!-- First Column Espresso -->
+                <WrapPanel Orientation="Vertical" Grid.Column="0" Margin="70,20,0,0">
+                    
+                    <ui:Button Width = "170" Height="120" Margin="4,0,0,10" 
+                               Background="#dea55f">
+                        <TextBlock TextAlignment="Center" >
+                            Late
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="4,0,4,10" Background="#c28944">
+                        <TextBlock TextAlignment="Center">
+                            Flat<LineBreak/>White
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="4,0,4,10" Background="#a16c2d">
+                        <TextBlock TextAlignment="Center">
+                            Caramel<LineBreak/>Macchiato
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="4,0,4,10" Background="#7a5122">
+                        <TextBlock TextAlignment="Center">
+                            Espresso
+                        </TextBlock>
+                    </ui:Button>    
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="4,0,4,10" Background="#523919">
+                        <TextBlock TextAlignment="Center">
+                            Espresso<LineBreak/>Macchiato
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="4,30,4,10" Background="#523919">
+                        <TextBlock TextAlignment="Center">
+                            Pumpkin Spice<LineBreak/>Late
+                        </TextBlock>
+                    </ui:Button>    
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="4,0,0,10" Background="#dea55f">
+                        <TextBlock TextAlignment="Center">
+                            Cappuccino
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="4,0,0,10" Background="#c28944">
+                        <TextBlock TextAlignment="Center">
+                            Americano
+                        </TextBlock>
+                    </ui:Button>    
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="4,0,0,10" Background="#a16c2d">
+                        <TextBlock TextAlignment="Center">
+                            Mocha
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="4,0,0,10" Background="#7a5122">
+                        <TextBlock TextAlignment="Center">
+                            White Choc<LineBreak/>Mocha
+                        </TextBlock>
+                    </ui:Button>    
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="4,0,0,10" Background="#523919">
+                        <TextBlock TextAlignment="Center">
+                            Iced Brown<LineBreak/>Sugar Oat<LineBreak/>Shaken Espresso
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="4,30,0,10" Background="#523919">
+                        <TextBlock TextAlignment="Center">
+                            Pumpkin Spice<LineBreak/>Caramel<LineBreak/>Macchiato
+                        </TextBlock>
+                    </ui:Button>    
+                    
+                </WrapPanel> 
+                
+                
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                
+                
+                <!-- Second Column Frappuccino -->
+                <WrapPanel Orientation="Vertical" Grid.Column="1" Margin="30,20,0,0">
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#d65402">
+                        <TextBlock TextAlignment="Center">
+                            Caramel<LineBreak/>Coffee<LineBreak/>Frappuccino
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#ba4902">
+                        <TextBlock TextAlignment="Center">
+                            Coffee<LineBreak/>Frappuccino
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#873501">
+                        <TextBlock TextAlignment="Center">
+                            Strawberry<LineBreak/>Cream<LineBreak/>Frappaccino
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#692901">
+                        <TextBlock TextAlignment="Center">
+                            Cookies<LineBreak/>& Cream<LineBreak/>Frappaccino
+                        </TextBlock>
+                    </ui:Button>    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#4d1e01">
+                        <TextBlock TextAlignment="Center">
+                            Chocolate<LineBreak/>Cream<LineBreak/>Frappaccino
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,30,0,10" Background="#7a4422">
+                        <TextBlock TextAlignment="Center">
+                            Pumpkin Spice<LineBreak/>Coffee<LineBreak/>Frappaccino
+                        </TextBlock>
+                    </ui:Button>      
+                    
+                    
+                </WrapPanel>
+                
+                
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                
+                
+                <!-- Third Column Brewed -->
+                <WrapPanel Orientation="Vertical" Grid.Column="2" Margin="30,20,0,0">
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#d67e02">
+                        <TextBlock TextAlignment="Center">
+                            Pike Place<LineBreak/>Roast
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#b56b02">
+                        <TextBlock TextAlignment="Center">
+                            Coffee<LineBreak/>of the<LineBreak/>Week
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#965902">
+                        <TextBlock TextAlignment="Center">
+                            Cold Brew
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#6b3f01">
+                        <TextBlock TextAlignment="Center">
+                            Cold Brew<LineBreak/>Late
+                        </TextBlock>
+                    </ui:Button>    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#523001">
+                        <TextBlock TextAlignment="Center">
+                            French<LineBreak/>Press
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    <!--
+                    <ui:Button Width = "170" Height="120" Margin="0,30,0,10">
+                        <TextBlock TextAlignment="Center">
+                            Pumpkin<LineBreak/>Spice Late
+                        </TextBlock>
+                    </ui:Button>      
+                    -->
+                    
+                </WrapPanel>
+                
+                
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                
+                
+                <!-- Fourth Column Tea -->
+                <WrapPanel Orientation="Vertical" Grid.Column="3" Margin="30,20,0,0">
+                    
+                    <ui:Button Width="170" Height="120" Margin="0,0,0,10" Background="#d4a302">
+                        <TextBlock TextAlignment="Center">
+                            English Breakfast<LineBreak/>Tea
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#b38902">
+                        <TextBlock TextAlignment="Center">
+                            Emperors Cloud<LineBreak/>& Mist
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#8f6e01">
+                        <TextBlock TextAlignment="Center">
+                            Chai Late
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#6b5201">
+                        <TextBlock TextAlignment="Center">
+                            Matcha Late
+                        </TextBlock>
+                    </ui:Button>    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#4d3b01">
+                        <TextBlock TextAlignment="Center">
+                            Peach Ice Tea
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,30,0,10" Background="#8f6e01">
+                        <TextBlock TextAlignment="Center">
+                            Iced Apple<LineBreak/>Crumble Matcha<LineBreak/>Late
+                        </TextBlock>
+                    </ui:Button>      
+                    
+                    
+                </WrapPanel>
+                
+                
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                
+                
+                <!-- Fifth Column Other -->
+                <WrapPanel Orientation="Vertical" Grid.Column="4" Margin="30,20,0,0">
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#c2af44">
+                        <TextBlock TextAlignment="Center">
+                            Classic Hot<LineBreak/>Chocolate
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#a18f2b">
+                        <TextBlock TextAlignment="Center">
+                            Strawberry Acai<LineBreak/>Refresha
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#827219">
+                        <TextBlock TextAlignment="Center">
+                            Very Berry<LineBreak/>Refresher
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#574b08">
+                        <TextBlock TextAlignment="Center">
+                            Cool Lime<LineBreak/>Refresha
+                        </TextBlock>
+                    </ui:Button>    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,0,0,10" Background="#3b3200">
+                        <TextBlock TextAlignment="Center">
+                            Milk
+                        </TextBlock>
+                    </ui:Button>
+                    
+                    
+                    <ui:Button Width = "170" Height="120" Margin="0,30,0,10" Background="#3b3200">
+                        <TextBlock TextAlignment="Center">
+                            Cherry <LineBreak/>Pomegranate<LineBreak/>Refresha
+                        </TextBlock>
+                    </ui:Button>      
+                    
+                    
+                </WrapPanel>
+                
+                
+            </Grid>
+            
+        </Grid>
+    
+    </Grid> 
+</Window>
