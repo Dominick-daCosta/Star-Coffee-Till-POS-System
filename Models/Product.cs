@@ -3,7 +3,9 @@
 public class Product
 {
     public int Id { get; set; }
-    public string Name { get; set; }
-    public decimal Price { get; set; }
-    public string Category { get; set; } // e.g., "Espresso", "Iced Tea", "Cold Foam"
+    public required string ItemCategory { get; set; }
+    public required string Name { get; set; }
+    public required decimal Price { get; set; }
+    public required string TextBlockName { get; set; }
+    public required string HexCode { get; set; }
 }

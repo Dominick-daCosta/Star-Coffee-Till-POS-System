@@ -1,5 +1,9 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows.Input;
 using Starbucks_POS.Models;
+
+// This is where the database is populated from
 
 namespace Starbucks_POS.ViewModels;
 
