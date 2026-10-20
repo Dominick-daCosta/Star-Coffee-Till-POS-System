@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Text.Json;
+using System.Windows;
 
 namespace Starbucks_POS.Models;
 
@@ -14,17 +15,32 @@ public static class DbInitialise
         context.Database.EnsureCreated();
         
         if (context.Products.Any()) return; // If the database already has drinks exit
-        
-        string jsonText = File.ReadAllText("InitialDrinks.json"); // Reads the text from the JSON
 
-        
-        var startingDrinks = JsonSerializer.Deserialize<List<Drink>>(jsonText); // Assigns the values in the JSON to instances of the class 
-         
-
-        if (startingDrinks != null && startingDrinks.Any())
+        try
         {
-            context.Products.AddRange(startingDrinks);
-            context.SaveChanges();
+            string jsonText = File.ReadAllText("InitialDrinks.json"); // Reads the text from the JSON
+
+
+            var startingDrinks =
+                JsonSerializer
+                    .Deserialize<List<Drink>>(jsonText); // Assigns the values in the JSON to instances of the class 
+
+
+            if (startingDrinks != null && startingDrinks.Any())
+            {
+                context.Products.AddRange(startingDrinks);
+                context.SaveChanges();
+            }
+        }
+        catch (JsonException ex)
+        {
+            // Catches missing commas, bad types, or ItemType placement errors
+            MessageBox.Show($"JSON Formatting Error: {ex.Message}", "Database Seed Failed");
+        }
+        catch (FileNotFoundException)
+        {
+            // Catches issues where the file didn't copy to the bin folder
+            MessageBox.Show("InitialDrinks.json could not be found.", "Database Seed Failed");
         }
     }
 }

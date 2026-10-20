@@ -1,14 +1,13 @@
 ﻿namespace Starbucks_POS.Models;
 
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Diagnostics.CodeAnalysis;
 
 [Table("LmtdDrinks")] // Makes a table in the database just for limited time drinks
 
 public class LmtdDrink : Drink
 {
-    public required DateOnly Launch { get; set; }
-    public required DateOnly Removal { get; set; }
+    public required DateOnly Launch { get; init; }
+    public required DateOnly Removal { get; init; }
 
     public Boolean Available // Re calculated every time
     {
@@ -20,7 +19,7 @@ public class LmtdDrink : Drink
     }
     
         
-    [SetsRequiredMembers]
+    
     public LmtdDrink()
     {
         ItemCategory = "LmtdDrink";

@@ -10,8 +10,26 @@
 
   {
     "ItemType": "Permanent",
+    "Name" : "Cappuccino",
+    "TextBlockName" : "Cappuccino",
+    "Price" : 4.50,
+    "HexCode" : "#dea55f",
+    "DrinkCategory" : "Espresso"
+  },
+
+  {
+    "ItemType": "Permanent",
     "Name" : "Flat White",
-    "TextBlockName" : "Flat<LineBreak/>White",
+    "TextBlockName" : "Flat\nWhite",
+    "Price" : 4.50,
+    "HexCode" : "#c28944",
+    "DrinkCategory" : "Espresso"
+  },
+
+  {
+    "ItemType": "Permanent",
+    "Name" : "Americano",
+    "TextBlockName" : "Americano",
     "Price" : 4.50,
     "HexCode" : "#c28944",
     "DrinkCategory" : "Espresso"
@@ -21,7 +39,16 @@
 
     "ItemType": "Permanent",
     "Name" : "Caramel Macchiato",
-    "TextBlockName" : "Caramel<LineBreak/>Macchiato",
+    "TextBlockName" : "Caramel\nMacchiato",
+    "Price" : 4.50,
+    "HexCode" : "#a16c2d",
+    "DrinkCategory" : "Espresso"
+  },
+
+  {
+    "ItemType": "Permanent",
+    "Name" : "Mocha",
+    "TextBlockName" : "Mocha",
     "Price" : 4.50,
     "HexCode" : "#a16c2d",
     "DrinkCategory" : "Espresso"
@@ -38,44 +65,8 @@
 
   {
     "ItemType": "Permanent",
-    "Name" : "Espresso Macchiato", 
-    "TextBlockName" : "Espresso<LineBreak/>Macchiato", 
-    "Price" : 4.50, 
-    "HexCode" : "#523919", 
-    "DrinkCategory" : "Espresso"
-  },
-
-  {
-    "ItemType": "Permanent",
-    "Name" : "Cappuccino",
-    "TextBlockName" : "Cappuccino",
-    "Price" : 4.50,
-    "HexCode" : "#dea55f",
-    "DrinkCategory" : "Espresso"
-  },
-
-  {
-    "ItemType": "Permanent",
-    "Name" : "Americano",
-    "TextBlockName" : "Americano",
-    "Price" : 4.50,
-    "HexCode" : "#c28944",
-    "DrinkCategory" : "Espresso"
-  },
-
-  {
-    "ItemType": "Permanent",
-    "Name" : "Mocha",
-    "TextBlockName" : "Mocha",
-    "Price" : 4.50,
-    "HexCode" : "#a16c2d",
-    "DrinkCategory" : "Espresso"
-  },
-
-  {
-    "ItemType": "Permanent",
     "Name" : "White Choc Mocha",
-    "TextBlockName" : "White Choc<LineBreak/>Mocha",
+    "TextBlockName" : "White Choc\nMocha",
     "Price" : 4.50,
     "HexCode" : "#7a5122",
     "DrinkCategory" : "Espresso"
@@ -83,8 +74,17 @@
 
   {
     "ItemType": "Permanent",
+    "Name" : "Espresso Macchiato", 
+    "TextBlockName" : "Espresso\nMacchiato", 
+    "Price" : 4.50, 
+    "HexCode" : "#523919", 
+    "DrinkCategory" : "Espresso"
+  },
+
+  {
+    "ItemType": "Permanent",
     "Name" : "Iced Brown Sugar Oat Shaken Espresso",
-    "TextBlockName" : "Iced Brown<LineBreak/>Sugar Oat<LineBreak/>Shaken Espresso",
+    "TextBlockName" : "Iced Brown\nSugar Oat\nShaken Espresso",
     "Price" : 4.50,
     "HexCode" : "#523919",
     "DrinkCategory" : "Espresso"
@@ -95,7 +95,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "Caramel Coffee Frappuccino",
-    "TextBlockName" : "Caramel<LineBreak/>Coffee<LineBreak/>Frappuccino",
+    "TextBlockName" : "Caramel\nCoffee\nFrappuccino",
     "Price" : 4.50,
     "HexCode" : "#d65402",
     "DrinkCategory" : "Frappuccino"
@@ -104,7 +104,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "Coffee Frappuccino",
-    "TextBlockName" : "Coffee<LineBreak/>Frappuccino",
+    "TextBlockName" : "Coffee\nFrappuccino",
     "Price" : 4.50,
     "HexCode" : "#ba4902",
     "DrinkCategory" : "Frappuccino"
@@ -113,7 +113,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "Strawberry Cream Frappuccino",
-    "TextBlockName" : "Strawberry<LineBreak/>Cream<LineBreak/>Frappaccino",
+    "TextBlockName" : "Strawberry\nCream\nFrappaccino",
     "Price" : 4.50,
     "HexCode" : "#873501",
     "DrinkCategory" : "Frappuccino"
@@ -122,7 +122,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "Cookies & Cream Frappuccino",
-    "TextBlockName" : "Cookies<LineBreak/>& Cream<LineBreak/>Frappaccino",
+    "TextBlockName" : "Cookies\n& Cream\nFrappaccino",
     "Price" : 4.50,
     "HexCode" : "#692901",
     "DrinkCategory" : "Frappuccino"
@@ -131,7 +131,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "Chocolate Cream Frappuccino",
-    "TextBlockName" : "Chocolate<LineBreak/>Cream<LineBreak/>Frappaccino",
+    "TextBlockName" : "Chocolate\nCream\nFrappaccino",
     "Price" : 4.50,
     "HexCode" : "#4d1e01",
     "DrinkCategory" : "Frappuccino"
@@ -142,7 +142,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "Pike Place Roast",
-    "TextBlockName" : "Pike Place<LineBreak/>Roast",
+    "TextBlockName" : "Pike Place\nRoast",
     "Price" : 4.50,
     "HexCode" : "#d67e02",
     "DrinkCategory" : "Brewed"
@@ -151,7 +151,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "Coffee of the Week",
-    "TextBlockName" : "Coffee<LineBreak/>of the<LineBreak/>Week",
+    "TextBlockName" : "Coffee\nof the\nWeek",
     "Price" : 4.50,
     "HexCode" : "#b56b02",
     "DrinkCategory" : "Brewed"
@@ -169,7 +169,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "Cold Brew Late",
-    "TextBlockName" : "Cold Brew<LineBreak/>Late",
+    "TextBlockName" : "Cold Brew\nLate",
     "Price" : 4.50,
     "HexCode" : "#6b3f01",
     "DrinkCategory" : "Brewed"
@@ -178,7 +178,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "French Press",
-    "TextBlockName" : "French<LineBreak/>Press",
+    "TextBlockName" : "French\nPress",
     "Price" : 4.50,
     "HexCode" : "#523001",
     "DrinkCategory" : "Brewed"
@@ -189,7 +189,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "English Breakfast Tea",
-    "TextBlockName" : "English Breakfast<LineBreak/>Tea",
+    "TextBlockName" : "English Breakfast\nTea",
     "Price" : 4.50,
     "HexCode" : "#d4a302",
     "DrinkCategory" : "Tea"
@@ -198,7 +198,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "Emperors Cloud & Mist",
-    "TextBlockName" : "Emperors Cloud<LineBreak/>& Mist",
+    "TextBlockName" : "Emperors Cloud\n& Mist",
     "Price" : 4.50,
     "HexCode" : "#b38902",
     "DrinkCategory" : "Tea"
@@ -236,7 +236,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "Classic Hot Chocolate",
-    "TextBlockName" : "Classic Hot<LineBreak/>Chocolate",
+    "TextBlockName" : "Classic Hot\nChocolate",
     "Price" : 4.50,
     "HexCode" : "#c2af44",
     "DrinkCategory" : "Other"
@@ -245,7 +245,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "Strawbery Acai Refresher",
-    "TextBlockName" : "Strawberry Acai<LineBreak/>Refresher",
+    "TextBlockName" : "Strawberry Acai\nRefresher",
     "Price" : 4.50,
     "HexCode" : "#a18f2b",
     "DrinkCategory" : "Other"
@@ -254,7 +254,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "Very Berry Refresher",
-    "TextBlockName" : "Very Berry<LineBreak/>Refresher",
+    "TextBlockName" : "Very Berry\nRefresher",
     "Price" : 4.50,
     "HexCode" : "#827219",
     "DrinkCategory" : "Other"
@@ -263,7 +263,7 @@
   {
     "ItemType": "Permanent",
     "Name" : "Cool Lime Refresher",
-    "TextBlockName" : "Cool Lime<LineBreak/>Refresher",
+    "TextBlockName" : "Cool Lime\nRefresher",
     "Price" : 4.50,
     "HexCode" : "#574b08",
     "DrinkCategory" : "Other"
@@ -295,7 +295,7 @@
   {
     "ItemType": "Limited",
     "Name" : "Pumpkin Spice Late",
-    "TextBlockName" : "Pumpkin Spice<LineBreak/>Late",
+    "TextBlockName" : "Pumpkin Spice\nLate",
     "Price" : 4.50,
     "HexCode" : "#523919",
     "DrinkCategory" : "Espresso",
@@ -307,7 +307,7 @@
   {
     "ItemType": "Limited",
     "Name" : "Pumpkin Spice Caramel Macchiato",
-    "TextBlockName" : "Pumpkin Spice<LineBreak/>Caramel<LineBreak/>Macchiato",
+    "TextBlockName" : "Pumpkin Spice\nCaramel\nMacchiato",
     "Price" : 4.50,
     "HexCode" : "#523919",
     "DrinkCategory" : "Espresso",
@@ -319,7 +319,7 @@
   {
     "ItemType": "Limited",
     "Name" : "Pumpkin Spice Coffee Frappaccino",
-    "TextBlockName" : "Pumpkin Spice<LineBreak/>Coffee<LineBreak/>Frappaccino",
+    "TextBlockName" : "Pumpkin Spice\nCoffee\nFrappaccino",
     "Price" : 4.50,
     "HexCode" : "#7a4422",
     "DrinkCategory" : "Frappuccino",
@@ -331,7 +331,7 @@
   {
     "ItemType": "Limited",
     "Name" : "Iced Apple Crumble Matcha Late",
-    "TextBlockName" : "Iced Apple<LineBreak/>Crumble Matcha<LineBreak/>Late",
+    "TextBlockName" : "Iced Apple\nCrumble Matcha\nLate",
     "Price" : 4.50,
     "HexCode" : "#8f6e01",
     "DrinkCategory" : "tea",
@@ -343,7 +343,7 @@
   {
     "ItemType": "Limited",
     "Name" : "Cherry Pomegranate Refresher",
-    "TextBlockName" : "Cherry <LineBreak/>Pomegranate<LineBreak/>Refresher",
+    "TextBlockName" : "Cherry \nPomegranate\nRefresher",
     "Price" : 4.50,
     "HexCode" : "#3b3200",
     "DrinkCategory" : "Other",

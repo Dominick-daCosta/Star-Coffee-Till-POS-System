@@ -1,7 +1,8 @@
-﻿namespace Starbucks_POS.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Starbucks_POS.Models;
 
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
 // Sets up the JSON reader so that it will separate drinks based on item type
@@ -12,13 +13,11 @@ using System.Text.Json.Serialization;
 [Table("Drinks")] // Makes a table in the database just for drinks
 public class Drink : Product
 {
-    public required string DrinkCategory { get; set; }
+    [MaxLength(50)]
+    public required string DrinkCategory { get; init; }
     
-    [SetsRequiredMembers]
-    public Drink()
-    {
-        ItemCategory = "Drink";
-    }
+    
+    public Drink() { ItemCategory = "Drink"; }
 
 
 

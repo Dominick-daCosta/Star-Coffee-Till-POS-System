@@ -43,7 +43,7 @@
         <Style x:Key="LmtdEspressoDrinkButton" TargetType="ui:Button" BasedOn="{StaticResource {x:Type ui:Button}}">
             <Setter Property="Width" Value="170"/>
             <Setter Property="Height" Value="120"/>
-            <Setter Property="Margin" Value="4,30,4,10"/>
+            <Setter Property="Margin" Value="0,30,8,10"/>
         </Style>
         
         
@@ -224,7 +224,7 @@
                     
                     <ui:Button Content="Espresso"  Height="120" Width="180" Margin="110,24,20,0" BorderThickness="0"   
                                Background="{StaticResource BackgroundColour}" />
-                    <ui:Button Content="Frappuccino" Height="120" Width="180" Margin="82,24,20,0" BorderThickness="0"   
+                    <ui:Button Content="Frappuccino" Height="120" Width="180" Margin="89,24,20,0" BorderThickness="0"   
                                Background="{StaticResource BackgroundColour}"/>
                     <ui:Button Content="Brewed" Height="120" Width="180" Margin="0,24,20,0" BorderThickness="0"   
                                Background="{StaticResource BackgroundColour}"/>
@@ -243,10 +243,11 @@
                 
                 <Grid Grid.Row="3" Grid.Column="1" >
                     
+                    
                     <!-- Define Columns-->
                     <Grid.ColumnDefinitions>
                 
-                        <ColumnDefinition Width="419" /> <!-- 1st column for Espresso -->
+                        <ColumnDefinition Width="426" /> <!-- 1st column for Espresso -->
                         <ColumnDefinition Width="199" /> <!-- 2nd column for Frappucchino -->
                         <ColumnDefinition Width="199" /> <!-- 3rd column for Brewed -->
                         <ColumnDefinition Width="199" /> <!-- 4th column for Tea -->
@@ -254,9 +255,16 @@
                 
                     </Grid.ColumnDefinitions>
                     
+                    <Grid.RowDefinitions>
+                
+                        <RowDefinition Height="670" /> <!-- 1st Row for Permanent Drinks -->
+                        <RowDefinition Height="Auto" /> <!-- 2nd column for Limited Time Drinks -->
+                
+                    </Grid.RowDefinitions>
+                    
                     
                     <!-- First Column Espresso -->
-                    <WrapPanel Orientation="Vertical" Grid.Column="0" Margin="70,20,0,0">
+                    <WrapPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0" Margin="70,20,0,0">
                         
                         <ui:Button Style="{StaticResource EspressoDrinkButton}" 
                                    Background="#dea55f">
@@ -294,12 +302,13 @@
                         </ui:Button>
                         
                         
+                        <!--
                         <ui:Button Style="{StaticResource LmtdEspressoDrinkButton}" Background="#523919">
                             <TextBlock TextAlignment="Center">
                                 Pumpkin Spice<LineBreak/>Late
                             </TextBlock>
                         </ui:Button>    
-                        
+                        -->
                         
                         <ui:Button Style="{StaticResource EspressoDrinkButton}" Background="#dea55f">
                             <TextBlock TextAlignment="Center">
@@ -335,12 +344,13 @@
                             </TextBlock>
                         </ui:Button>
                         
-                        
+                        <!--
                         <ui:Button Style="{StaticResource LmtdEspressoDrinkButton}" Background="#523919">
                             <TextBlock TextAlignment="Center">
                                 Pumpkin Spice<LineBreak/>Caramel<LineBreak/>Macchiato
                             </TextBlock>
                         </ui:Button>    
+                        -->
                         
                     </WrapPanel> 
                     
@@ -349,7 +359,7 @@
                     
                     
                     <!-- Second Column Frappuccino -->
-                    <WrapPanel Orientation="Vertical" Grid.Column="1" Margin="30,20,0,0">
+                    <WrapPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0" Margin="30,20,0,0">
                         
                         <ui:Button Style="{StaticResource DrinkButton}" Background="#d65402">
                             <TextBlock TextAlignment="Center">
@@ -384,13 +394,13 @@
                             </TextBlock>
                         </ui:Button>
                         
-                        
+                        <!--
                         <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="#7a4422">
                             <TextBlock TextAlignment="Center">
                                 Pumpkin Spice<LineBreak/>Coffee<LineBreak/>Frappaccino
                             </TextBlock>
                         </ui:Button>      
-                        
+                        -->
                         
                     </WrapPanel>
                     
@@ -399,7 +409,7 @@
                     
                     
                     <!-- Third Column Brewed -->
-                    <WrapPanel Orientation="Vertical" Grid.Column="2" Margin="30,20,0,0">
+                    <WrapPanel Orientation="Vertical" Grid.Column="2" Grid.Row="0" Margin="30,20,0,0">
                         
                         <ui:Button Style="{StaticResource DrinkButton}" Background="#d67e02">
                             <TextBlock TextAlignment="Center">
@@ -449,7 +459,7 @@
                     
                     
                     <!-- Fourth Column Tea -->
-                    <WrapPanel Orientation="Vertical" Grid.Column="3" Margin="30,20,0,0">
+                    <WrapPanel Orientation="Vertical" Grid.Column="3" Grid.Row="0" Margin="30,20,0,0">
                         
                         <ui:Button Width="170" Height="120" Margin="0,0,0,10" Background="#d4a302">
                             <TextBlock TextAlignment="Center">
@@ -485,12 +495,13 @@
                         </ui:Button>
                         
                         
+                        <!--
                         <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="#8f6e01">
                             <TextBlock TextAlignment="Center">
                                 Iced Apple<LineBreak/>Crumble Matcha<LineBreak/>Late
                             </TextBlock>
                         </ui:Button>      
-                        
+                        -->
                         
                     </WrapPanel>
                     
@@ -499,7 +510,7 @@
                     
                     
                     <!-- Fifth Column Other -->
-                    <WrapPanel Orientation="Vertical" Grid.Column="4" Margin="30,20,0,0">
+                    <WrapPanel Orientation="Vertical" Grid.Column="4" Grid.Row="0" Margin="30,20,0,0">
                         
                         <ui:Button Style="{StaticResource DrinkButton}" Background="#c2af44">
                             <TextBlock TextAlignment="Center">
@@ -535,17 +546,89 @@
                         </ui:Button>
                         
                         
+                        <!--
                         <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="#3b3200">
                             <TextBlock TextAlignment="Center">
                                 Cherry <LineBreak/>Pomegranate<LineBreak/>Refresha
                             </TextBlock>
-                        </ui:Button>      
+                        </ui:Button>    
+                        -->  
                         
                         
                     </WrapPanel>
                     
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
                     
-                </Grid>
+                    <!-- LIMITED TIME DRINKS ROW -->
+                    
+                    <!-- Espresso Drinks -->
+                    <WrapPanel  Grid.Column="0" Grid.Row="1" Margin="70,0,0,0">
+                        
+                        <ui:Button Style="{StaticResource LmtdEspressoDrinkButton}" Background="#523919">
+                            <TextBlock TextAlignment="Center">
+                                Pumpkin Spice<LineBreak/>Late
+                            </TextBlock>
+                        </ui:Button>
+                        
+                        <ui:Button Style="{StaticResource LmtdEspressoDrinkButton}" Background="#523919">
+                            <TextBlock TextAlignment="Center">
+                                Pumpkin Spice<LineBreak/>Caramel<LineBreak/>Macchiato
+                            </TextBlock>
+                        </ui:Button>
+                        
+                    </WrapPanel>
+                    
+                    
+                    <!-- Frappuccino -->
+                    <WrapPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" Margin="30,0,0,0">
+                        
+                        <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="#7a4422">
+                            <TextBlock TextAlignment="Center">
+                                Pumpkin Spice<LineBreak/>Coffee<LineBreak/>Frappaccino
+                            </TextBlock>
+                        </ui:Button>
+                        
+                    </WrapPanel>
+                    
+                    
+                    <!-- Brewed -->
+                    <WrapPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1" Margin="30,0,0,0">
+                        
+                        <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="#7a4422">
+                            <TextBlock TextAlignment="Center">
+                                Pumpkin Spice<LineBreak/>Coffee<LineBreak/>Frappaccino
+                            </TextBlock>
+                        </ui:Button>
+                        
+                    </WrapPanel>
+                    
+                    
+                    <!-- Tea -->
+                    <WrapPanel Orientation="Vertical" Grid.Column="3" Grid.Row="1" Margin="30,0,0,0">
+                        
+                        <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="#8f6e01">
+                            <TextBlock TextAlignment="Center">
+                                Iced Apple<LineBreak/>Crumble Matcha<LineBreak/>Late
+                            </TextBlock>
+                        </ui:Button>
+                        
+                    </WrapPanel>
+                    
+                    
+                    <!-- Other -->
+                    <WrapPanel Orientation="Vertical" Grid.Column="4" Grid.Row="1" Margin="30,0,0,0">
+                        
+                        <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="#3b3200">
+                            <TextBlock TextAlignment="Center">
+                                Cherry <LineBreak/>Pomegranate<LineBreak/>Refresha
+                            </TextBlock>
+                        </ui:Button>
+                        
+                    </WrapPanel>
+                    
+                    
+                    
+                </Grid> <!-- End of drinks column -->
                 
             </Grid>
         
