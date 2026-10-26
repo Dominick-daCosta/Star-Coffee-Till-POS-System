@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:viewModels="clr-namespace:Starbucks_POS.ViewModels"
+        xmlns:models="clr-namespace:Starbucks_POS.Models"
         Title="POS Terminal" 
         WindowState="Maximized" 
         Background="#202020">
@@ -45,6 +46,19 @@
             <Setter Property="Height" Value="120"/>
             <Setter Property="Margin" Value="0,30,8,10"/>
         </Style>
+        
+        <!-- Set Format for Importing permanent Drinks from Database -->
+        <DataTemplate DataType="{x:Type models:Drink}">
+            <ui:Button Style="{StaticResource DrinkButton}" Background="{Binding HexCode}">
+                <TextBlock TextAlignment="Center" Text="{Binding TextBlockName}" TextWrapping="Wrap"/>
+            </ui:Button>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type models:LmtdDrink}">
+            <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="{Binding HexCode}">
+                <TextBlock TextAlignment="Center" Text="{Binding TextBlockName}" TextWrapping="Wrap"/>
+            </ui:Button>
+        </DataTemplate>
         
         
         <!-- VARIABLE CONSTANTS -->
@@ -101,7 +115,7 @@
                         
                         <StackPanel>
                             <TextBlock Text="Scan Star-Coffee ID" FontSize="35" TextWrapping="Wrap"/>
-                            <TextBlock Text="Redy" FontSize="20" Foreground="#AAAAAA" Margin="0,3,0,0"/>
+                            <TextBlock Text="Ready" FontSize="20" Foreground="#AAAAAA" Margin="0,3,0,0"/>
                         </StackPanel>
                         
                     </ui:Button>
@@ -112,7 +126,7 @@
     <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
                 
                 
-                <!-- Recipts Panel -->  
+                <!-- Receipts Panel -->  
                 <StackPanel Grid.Row="1" Background="LightGray">
                     
                 </StackPanel>
@@ -164,7 +178,7 @@
                 
                 <Grid.ColumnDefinitions>
                     
-                    <ColumnDefinition Width="200" />  <!-- 1st column for the customisation menue -->
+                    <ColumnDefinition Width="200" />  <!-- 1st column for the customisation menu -->
                     <ColumnDefinition Width="*" />   <!-- 2nd column for the menu -->
                 
                 </Grid.ColumnDefinitions>
@@ -264,369 +278,156 @@
                     
                     
                     <!-- First Column Espresso -->
-                    <WrapPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0" Margin="70,20,0,0">
-                        
-                        <ui:Button Style="{StaticResource EspressoDrinkButton}" 
-                                   Background="#dea55f">
-                            <TextBlock TextAlignment="Center" >
-                                Late
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource EspressoDrinkButton}" Background="#c28944">
-                            <TextBlock TextAlignment="Center">
-                                Flat<LineBreak/>White
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource EspressoDrinkButton}" Background="#a16c2d">
-                            <TextBlock TextAlignment="Center">
-                                Caramel<LineBreak/>Macchiato
-                            </TextBlock>
-                        </ui:Button>
+                    <ItemsControl Grid.Column="0" ItemsSource="{Binding PermanentEspressoDrinks}">
+                        <ItemsControl.Resources>
+                            
+                            <!-- Defines the Espresso Buttons -->
+                            <DataTemplate DataType="{x:Type models:Drink}">
+                                <ui:Button Style="{StaticResource EspressoDrinkButton}" Background="{Binding HexCode}">
+                                    <TextBlock TextAlignment="Center" Text="{Binding TextBlockName}" TextWrapping="Wrap"/>
+                                </ui:Button>
+                            </DataTemplate>
+                            
+                            <DataTemplate DataType="{x:Type models:LmtdDrink}">
+                                <ui:Button Style="{StaticResource LmtdEspressoDrinkButton}" Background="{Binding HexCode}">
+                                    <TextBlock TextAlignment="Center" Text="{Binding TextBlockName}" TextWrapping="Wrap"/>
+                                </ui:Button>
+                            </DataTemplate>
+                            
+                        </ItemsControl.Resources>
                         
                         
-                        <ui:Button Style="{StaticResource EspressoDrinkButton}" Background="#7a5122">
-                            <TextBlock TextAlignment="Center">
-                                Espresso
-                            </TextBlock>
-                        </ui:Button>    
-                        
-                        
-                        <ui:Button Style="{StaticResource EspressoDrinkButton}" Background="#523919">
-                            <TextBlock TextAlignment="Center">
-                                Espresso<LineBreak/>Macchiato
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <!--
-                        <ui:Button Style="{StaticResource LmtdEspressoDrinkButton}" Background="#523919">
-                            <TextBlock TextAlignment="Center">
-                                Pumpkin Spice<LineBreak/>Late
-                            </TextBlock>
-                        </ui:Button>    
-                        -->
-                        
-                        <ui:Button Style="{StaticResource EspressoDrinkButton}" Background="#dea55f">
-                            <TextBlock TextAlignment="Center">
-                                Cappuccino
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource EspressoDrinkButton}" Background="#c28944">
-                            <TextBlock TextAlignment="Center">
-                                Americano
-                            </TextBlock>
-                        </ui:Button>    
-                        
-                        
-                        <ui:Button Style="{StaticResource EspressoDrinkButton}" Background="#a16c2d">
-                            <TextBlock TextAlignment="Center">
-                                Mocha
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource EspressoDrinkButton}" Background="#7a5122">
-                            <TextBlock TextAlignment="Center">
-                                White Choc<LineBreak/>Mocha
-                            </TextBlock>
-                        </ui:Button>    
-                        
-                        
-                        <ui:Button Style="{StaticResource EspressoDrinkButton}" Background="#523919">
-                            <TextBlock TextAlignment="Center">
-                                Iced Brown<LineBreak/>Sugar Oat<LineBreak/>Shaken Espresso
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        <!--
-                        <ui:Button Style="{StaticResource LmtdEspressoDrinkButton}" Background="#523919">
-                            <TextBlock TextAlignment="Center">
-                                Pumpkin Spice<LineBreak/>Caramel<LineBreak/>Macchiato
-                            </TextBlock>
-                        </ui:Button>    
-                        -->
-                        
-                    </WrapPanel> 
+                        <!-- Places The Buttons -->
+                        <ItemsControl.ItemsPanel>
+                            
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical" Margin="70,20,0,0"/>
+                            </ItemsPanelTemplate>
+                            
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl> 
                     
                     
     <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
                     
                     
                     <!-- Second Column Frappuccino -->
-                    <WrapPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0" Margin="30,20,0,0">
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#d65402">
-                            <TextBlock TextAlignment="Center">
-                                Caramel<LineBreak/>Coffee<LineBreak/>Frappuccino
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#ba4902">
-                            <TextBlock TextAlignment="Center">
-                                Coffee<LineBreak/>Frappuccino
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#873501">
-                            <TextBlock TextAlignment="Center">
-                                Strawberry<LineBreak/>Cream<LineBreak/>Frappaccino
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#692901">
-                            <TextBlock TextAlignment="Center">
-                                Cookies<LineBreak/>&amp; Cream<LineBreak/>Frappaccino
-                            </TextBlock>
-                        </ui:Button>    
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#4d1e01">
-                            <TextBlock TextAlignment="Center">
-                                Chocolate<LineBreak/>Cream<LineBreak/>Frappaccino
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        <!--
-                        <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="#7a4422">
-                            <TextBlock TextAlignment="Center">
-                                Pumpkin Spice<LineBreak/>Coffee<LineBreak/>Frappaccino
-                            </TextBlock>
-                        </ui:Button>      
-                        -->
-                        
-                    </WrapPanel>
+                    <ItemsControl Grid.Column="1" Grid.Row="0" ItemsSource="{Binding PermanentFrappuccinoDrinks}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical" Margin="30,20,0,0"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
                     
                     
     <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
                     
                     
                     <!-- Third Column Brewed -->
-                    <WrapPanel Orientation="Vertical" Grid.Column="2" Grid.Row="0" Margin="30,20,0,0">
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#d67e02">
-                            <TextBlock TextAlignment="Center">
-                                Pike Place<LineBreak/>Roast
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#b56b02">
-                            <TextBlock TextAlignment="Center">
-                                Coffee<LineBreak/>of the<LineBreak/>Week
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#965902">
-                            <TextBlock TextAlignment="Center">
-                                Cold Brew
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#6b3f01">
-                            <TextBlock TextAlignment="Center">
-                                Cold Brew<LineBreak/>Late
-                            </TextBlock>
-                        </ui:Button>    
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#523001">
-                            <TextBlock TextAlignment="Center">
-                                French<LineBreak/>Press
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        <!--
-                        <ui:Button Style="{StaticResource LmtdDrinkButton}">
-                            <TextBlock TextAlignment="Center">
-                                Pumpkin<LineBreak/>Spice Late
-                            </TextBlock>
-                        </ui:Button>      
-                        -->
-                        
-                    </WrapPanel>
+                    <ItemsControl Grid.Column="2" Grid.Row="0" ItemsSource="{Binding PermanentBrewedDrinks}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical" Margin="30,20,0,0"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
                     
                     
     <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
                     
                     
                     <!-- Fourth Column Tea -->
-                    <WrapPanel Orientation="Vertical" Grid.Column="3" Grid.Row="0" Margin="30,20,0,0">
-                        
-                        <ui:Button Width="170" Height="120" Margin="0,0,0,10" Background="#d4a302">
-                            <TextBlock TextAlignment="Center">
-                                English Breakfast<LineBreak/>Tea
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#b38902">
-                            <TextBlock TextAlignment="Center">
-                                Emperors Cloud<LineBreak/>&amp; Mist
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#8f6e01">
-                            <TextBlock TextAlignment="Center">
-                                Chai Late
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#6b5201">
-                            <TextBlock TextAlignment="Center">
-                                Matcha Late
-                            </TextBlock>
-                        </ui:Button>    
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#4d3b01">
-                            <TextBlock TextAlignment="Center">
-                                Peach Ice Tea
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <!--
-                        <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="#8f6e01">
-                            <TextBlock TextAlignment="Center">
-                                Iced Apple<LineBreak/>Crumble Matcha<LineBreak/>Late
-                            </TextBlock>
-                        </ui:Button>      
-                        -->
-                        
-                    </WrapPanel>
+                    <ItemsControl Grid.Column="3" Grid.Row="0" ItemsSource="{Binding PermanentTeaDrinks}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical" Margin="30,20,0,0"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
                     
                     
     <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
                     
                     
                     <!-- Fifth Column Other -->
-                    <WrapPanel Orientation="Vertical" Grid.Column="4" Grid.Row="0" Margin="30,20,0,0">
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#c2af44">
-                            <TextBlock TextAlignment="Center">
-                                Classic Hot<LineBreak/>Chocolate
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#a18f2b">
-                            <TextBlock TextAlignment="Center">
-                                Strawberry Acai<LineBreak/>Refresha
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#827219">
-                            <TextBlock TextAlignment="Center">
-                                Very Berry<LineBreak/>Refresher
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#574b08">
-                            <TextBlock TextAlignment="Center">
-                                Cool Lime<LineBreak/>Refresha
-                            </TextBlock>
-                        </ui:Button>    
-                        
-                        <ui:Button Style="{StaticResource DrinkButton}" Background="#3b3200">
-                            <TextBlock TextAlignment="Center">
-                                Milk
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        
-                        <!--
-                        <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="#3b3200">
-                            <TextBlock TextAlignment="Center">
-                                Cherry <LineBreak/>Pomegranate<LineBreak/>Refresha
-                            </TextBlock>
-                        </ui:Button>    
-                        -->  
-                        
-                        
-                    </WrapPanel>
+                    <ItemsControl Grid.Column="4" Grid.Row="0" ItemsSource="{Binding PermanentOtherDrinks}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical" Margin="30,20,0,0"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                    
                     
 <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    
                     
                     <!-- LIMITED TIME DRINKS ROW -->
                     
                     <!-- Espresso Drinks -->
-                    <WrapPanel  Grid.Column="0" Grid.Row="1" Margin="70,0,0,0">
+                    <ItemsControl Grid.Column="0" Grid.Row="1" ItemsSource="{Binding LimitedEspressoDrinks}">
+                        <ItemsControl.Resources>
+                            
+                            <DataTemplate DataType="{x:Type models:LmtdDrink}">
+                                
+                                <ui:Button Style="{StaticResource LmtdEspressoDrinkButton}" Background="{Binding HexCode}">
+                                    <TextBlock TextAlignment="Center" Text="{Binding TextBlockName}" TextWrapping="Wrap"/>
+                                </ui:Button>
+                                
+                            </DataTemplate>
+                        </ItemsControl.Resources>
                         
-                        <ui:Button Style="{StaticResource LmtdEspressoDrinkButton}" Background="#523919">
-                            <TextBlock TextAlignment="Center">
-                                Pumpkin Spice<LineBreak/>Late
-                            </TextBlock>
-                        </ui:Button>
-                        
-                        <ui:Button Style="{StaticResource LmtdEspressoDrinkButton}" Background="#523919">
-                            <TextBlock TextAlignment="Center">
-                                Pumpkin Spice<LineBreak/>Caramel<LineBreak/>Macchiato
-                            </TextBlock>
-                        </ui:Button>
-                        
-                    </WrapPanel>
+                        <ItemsControl.ItemsPanel>
+                            
+                            <ItemsPanelTemplate>
+                            
+                                <WrapPanel Margin="70,0,0,0"/>
+                                
+                            </ItemsPanelTemplate>
+                            
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
                     
                     
                     <!-- Frappuccino -->
-                    <WrapPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" Margin="30,0,0,0">
-                        
-                        <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="#7a4422">
-                            <TextBlock TextAlignment="Center">
-                                Pumpkin Spice<LineBreak/>Coffee<LineBreak/>Frappaccino
-                            </TextBlock>
-                        </ui:Button>
-                        
-                    </WrapPanel>
+                    <ItemsControl Grid.Column="1" Grid.Row="1" ItemsSource="{Binding LimitedFrappuccinoDrinks}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical" Margin="30,0,0,0"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
                     
                     
                     <!-- Brewed -->
-                    <WrapPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1" Margin="30,0,0,0">
-                        
-                        <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="#7a4422">
-                            <TextBlock TextAlignment="Center">
-                                Pumpkin Spice<LineBreak/>Coffee<LineBreak/>Frappaccino
-                            </TextBlock>
-                        </ui:Button>
-                        
-                    </WrapPanel>
+                    <ItemsControl Grid.Column="2" Grid.Row="1" ItemsSource="{Binding LimitedBrewedDrinks}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical" Margin="30,0,0,0"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
                     
                     
                     <!-- Tea -->
-                    <WrapPanel Orientation="Vertical" Grid.Column="3" Grid.Row="1" Margin="30,0,0,0">
-                        
-                        <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="#8f6e01">
-                            <TextBlock TextAlignment="Center">
-                                Iced Apple<LineBreak/>Crumble Matcha<LineBreak/>Late
-                            </TextBlock>
-                        </ui:Button>
-                        
-                    </WrapPanel>
+                    <ItemsControl Grid.Column="3" Grid.Row="1" ItemsSource="{Binding LimitedTeaDrinks}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical" Margin="30,0,0,0"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
                     
                     
                     <!-- Other -->
-                    <WrapPanel Orientation="Vertical" Grid.Column="4" Grid.Row="1" Margin="30,0,0,0">
-                        
-                        <ui:Button Style="{StaticResource LmtdDrinkButton}" Background="#3b3200">
-                            <TextBlock TextAlignment="Center">
-                                Cherry <LineBreak/>Pomegranate<LineBreak/>Refresha
-                            </TextBlock>
-                        </ui:Button>
-                        
-                    </WrapPanel>
-                    
-                    
+                    <ItemsControl Grid.Column="4" Grid.Row="1" ItemsSource="{Binding LimitedOtherDrinks}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical" Margin="30,0,0,0"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
                     
                 </Grid> <!-- End of drinks column -->
                 

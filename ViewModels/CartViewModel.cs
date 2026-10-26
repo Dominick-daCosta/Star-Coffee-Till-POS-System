@@ -11,12 +11,15 @@ public class CartViewModel
     // Create lists for the UI to bind to
     
     public ObservableCollection<Drink> PermanentEspressoDrinks { get; set; } = new();
-    
     public ObservableCollection<Drink> LimitedEspressoDrinks { get; set; } = new();
-    public ObservableCollection<Drink> FrappuccinoDrinks { get; set; } = new();
-    public ObservableCollection<Drink> BrewedDrinks { get; set; } = new();
-    public ObservableCollection<Drink> TeaDrinks { get; set; } = new();
-    public ObservableCollection<Drink> OtherDrinks { get; set; } = new();
+    public ObservableCollection<Drink> PermanentFrappuccinoDrinks { get; set; } = new();
+    public ObservableCollection<Drink> LimitedFrappuccinoDrinks { get; set; } = new();
+    public ObservableCollection<Drink> PermanentBrewedDrinks { get; set; } = new();
+    public ObservableCollection<Drink> LimitedBrewedDrinks { get; set; } = new();
+    public ObservableCollection<Drink> PermanentTeaDrinks { get; set; } = new();
+    public ObservableCollection<Drink> LimitedTeaDrinks { get; set; } = new();
+    public ObservableCollection<Drink> PermanentOtherDrinks { get; set; } = new();
+    public ObservableCollection<Drink> LimitedOtherDrinks { get; set; } = new();
 
     public CartViewModel()
     {
@@ -53,19 +56,31 @@ public class CartViewModel
         
         foreach (var drink in availableDrinks.Where(d => d.DrinkCategory == "Frappuccino"))
         {
-            FrappuccinoDrinks.Add(drink);
+            if (drink is LmtdDrink)
+                LimitedFrappuccinoDrinks.Add(drink);
+            else
+                PermanentFrappuccinoDrinks.Add(drink);
         }
         foreach (var drink in availableDrinks.Where(d => d.DrinkCategory == "Brewed"))
         {
-            BrewedDrinks.Add(drink);
+            if (drink is LmtdDrink)
+                LimitedBrewedDrinks.Add(drink);
+            else
+                PermanentBrewedDrinks.Add(drink);
         }
         foreach (var drink in availableDrinks.Where(d => d.DrinkCategory == "Tea"))
         {
-            TeaDrinks.Add(drink);
+            if (drink is LmtdDrink)
+                LimitedTeaDrinks.Add(drink);
+            else
+                PermanentTeaDrinks.Add(drink);
         }
         foreach (var drink in availableDrinks.Where(d => d.DrinkCategory == "Other"))
         {
-            OtherDrinks.Add(drink);
+            if (drink is LmtdDrink)
+                LimitedOtherDrinks.Add(drink);
+            else
+                PermanentOtherDrinks.Add(drink);
         }
         
         

@@ -10,19 +10,46 @@
 
   {
     "ItemType": "Permanent",
-    "Name" : "Cappuccino",
-    "TextBlockName" : "Cappuccino",
+    "Name" : "Flat White",
+    "TextBlockName" : "Flat\nWhite",
     "Price" : 4.50,
-    "HexCode" : "#dea55f",
+    "HexCode" : "#c28944",
     "DrinkCategory" : "Espresso"
   },
 
   {
     "ItemType": "Permanent",
-    "Name" : "Flat White",
-    "TextBlockName" : "Flat\nWhite",
+    "Name" : "Caramel Macchiato",
+    "TextBlockName" : "Caramel\nMacchiato",
     "Price" : 4.50,
-    "HexCode" : "#c28944",
+    "HexCode" : "#a16c2d",
+    "DrinkCategory" : "Espresso"
+  },
+
+  {
+    "ItemType": "Permanent",
+    "Name" : "Espresso",
+    "TextBlockName" : "Espresso",
+    "Price" : 4.50,
+    "HexCode" : "#7a5122",
+    "DrinkCategory" : "Espresso"
+  },
+
+  {
+    "ItemType": "Permanent",
+    "Name" : "Espresso Macchiato",
+    "TextBlockName" : "Espresso\nMacchiato",
+    "Price" : 4.50,
+    "HexCode" : "#523919",
+    "DrinkCategory" : "Espresso"
+  },
+
+  {
+    "ItemType": "Permanent",
+    "Name" : "Cappuccino",
+    "TextBlockName" : "Cappuccino",
+    "Price" : 4.50,
+    "HexCode" : "#dea55f",
     "DrinkCategory" : "Espresso"
   },
 
@@ -34,32 +61,13 @@
     "HexCode" : "#c28944",
     "DrinkCategory" : "Espresso"
   },
-
-  {
-
-    "ItemType": "Permanent",
-    "Name" : "Caramel Macchiato",
-    "TextBlockName" : "Caramel\nMacchiato",
-    "Price" : 4.50,
-    "HexCode" : "#a16c2d",
-    "DrinkCategory" : "Espresso"
-  },
-
+  
   {
     "ItemType": "Permanent",
     "Name" : "Mocha",
     "TextBlockName" : "Mocha",
     "Price" : 4.50,
     "HexCode" : "#a16c2d",
-    "DrinkCategory" : "Espresso"
-  },
-  
-  {
-    "ItemType": "Permanent", 
-    "Name" : "Espresso", 
-    "TextBlockName" : "Espresso", 
-    "Price" : 4.50, 
-    "HexCode" : "#7a5122", 
     "DrinkCategory" : "Espresso"
   },
 
@@ -69,15 +77,6 @@
     "TextBlockName" : "White Choc\nMocha",
     "Price" : 4.50,
     "HexCode" : "#7a5122",
-    "DrinkCategory" : "Espresso"
-  },
-
-  {
-    "ItemType": "Permanent",
-    "Name" : "Espresso Macchiato", 
-    "TextBlockName" : "Espresso\nMacchiato", 
-    "Price" : 4.50, 
-    "HexCode" : "#523919", 
     "DrinkCategory" : "Espresso"
   },
 
@@ -334,7 +333,7 @@
     "TextBlockName" : "Iced Apple\nCrumble Matcha\nLate",
     "Price" : 4.50,
     "HexCode" : "#8f6e01",
-    "DrinkCategory" : "tea",
+    "DrinkCategory" : "Tea",
     
     "Launch": "2026-09-01",
     "Removal": "2026-11-30"
